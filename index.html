@@ -16,6 +16,7 @@
       background-color: #d63384;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 1rem 2rem;
       color: white;
       position: sticky;
@@ -25,6 +26,18 @@
     nav .logo {
       font-size: 1.5rem;
       font-weight: bold;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      border-radius: 5px;
     }
     nav ul {
       list-style: none;
@@ -37,6 +50,27 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #d63384;
+        flex-direction: column;
+        display: none;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav ul li {
+        padding: 0.5rem 0;
+        text-align: center;
+      }
     }
     .flower-rain {
       position: fixed;
@@ -116,7 +150,10 @@
 <body>
   <nav>
     <div class="logo">💖 RuHI</div>
-    <ul>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <ul id="navMenu">
       <li><a href="index.html">Home</a></li>
       <li><a href="coffee.html">Coffee Date</a></li>
       <li><a href="hug.html">Hug</a></li>
@@ -126,14 +163,7 @@
       <li><a href="letters.html">Letters</a></li>
       <li><a href="promises.html">Promises</a></li>
       <li><a href="whyiloveyou.html">Why I Love You</a></li>
-      <li><a href="memory_carousel.html">Carousel</a></li>
-      <li><a href="surprise.html">Surprise</a></li>
       <li><a href="funzone.html">Fun Zone</a></li>
-      <li><a href="dreams.html">Dreams</a></li>
-      <li><a href="rainchai.html">Rain & Chai</a></li>
-      <li><a href="starsky.html">Starry Sky</a></li>
-      <li><a href="rules.html">Rules</a></li>
-      <li><a href="nicknames.html">Nicknames</a></li>
     </ul>
   </nav>
 
@@ -201,6 +231,10 @@
       setTimeout(() => flower.remove(), 7000);
     }
     setInterval(createFlower, 300);
+
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('show');
+    }
   </script>
 </body>
 </html>
