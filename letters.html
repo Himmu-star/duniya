@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💌 Open When Letters</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #d63384;
+      margin-bottom: 1rem;
+    }
+    .letters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .letter {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      width: 200px;
+      height: 120px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .letter:hover {
+      transform: scale(1.05);
+      background: #ffe4ec;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      z-index: 10;
+      display: none;
+      max-width: 90vw;
+    }
+    .popup h2 {
+      color: #e91e63;
+    }
+    .popup p {
+      font-size: 1.1rem;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.4);
+      z-index: 5;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 Open When Letters</h1>
+  <p>Click a letter that matches your mood 💕</p>
+  <div class="letters">
+    <div class="letter" onclick="openLetter('sad')">Open When You're Sad 😢</div>
+    <div class="letter" onclick="openLetter('missing')">Open When You're Missing Me 🥺</div>
+    <div class="letter" onclick="openLetter('smile')">Open When You Want to Smile 😊</div>
+    <div class="letter" onclick="openLetter('angry')">Open When You're Angry 😡</div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="closePopup()"></div>
+  <div class="popup" id="popup">
+    <h2 id="popupTitle"></h2>
+    <p id="popupMessage"></p>
+  </div>
+
+  <script>
+    const messages = {
+      sad: {
+        title: "Hey Love, I know you're sad 💔",
+        message: "But please remember, even the moon has dark phases. I'm always here, your smile is my sunshine 🌈💞"
+      },
+      missing: {
+        title: "You miss me? I miss you more! 😢",
+        message: "Close your eyes, and feel this hug 🤗. I’m just a heartbeat away, forever in love with you."
+      },
+      smile: {
+        title: "Smile Please 😁",
+        message: "You look the cutest when you smile! So here's a tickle 🤭 and a flying kiss 😘. Smile for me now!"
+      },
+      angry: {
+        title: "Oops! You're Angry 😬",
+        message: "A big sorry and a tighter hug 🤗. Please forgive this idiot who loves you endlessly 🥹💓"
+      }
+    };
+
+    function openLetter(type) {
+      const { title, message } = messages[type];
+      document.getElementById('popupTitle').innerText = title;
+      document.getElementById('popupMessage').innerText = message;
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

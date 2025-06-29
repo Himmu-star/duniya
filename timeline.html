@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📆 Relationship Timeline</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6ec, #fffafc);
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+      margin-bottom: 3rem;
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 20px;
+      border-left: 4px solid #d63384;
+    }
+    .entry {
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+    .entry::before {
+      content: '💗';
+      position: absolute;
+      left: -28px;
+      top: 0;
+      font-size: 1.5rem;
+    }
+    .date {
+      font-weight: bold;
+      color: #e91e63;
+    }
+    .desc {
+      color: #333;
+      padding-top: 0.2rem;
+    }
+    .entry:hover .desc {
+      animation: fadeInUp 0.6s ease;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>📆 Our Relationship Timeline</h1>
+  <div class="timeline">
+    <div class="entry">
+      <div class="date">13 Nov 2022</div>
+      <div class="desc">First time I saw you in college — love at first sight 💕</div>
+    </div>
+    <div class="entry">
+      <div class="date">18 Dec 2022</div>
+      <div class="desc">First time I messaged you nervously 🥺</div>
+    </div>
+    <div class="entry">
+      <div class="date">23 Dec 2022</div>
+      <div class="desc">You replied for the first time 😍</div>
+    </div>
+    <div class="entry">
+      <div class="date">28 Mar 2023</div>
+      <div class="desc">First call — your voice made me smile for hours 📞</div>
+    </div>
+    <div class="entry">
+      <div class="date">24 Apr 2023</div>
+      <div class="desc">First long night call — so many feelings shared 🌙</div>
+    </div>
+    <div class="entry">
+      <div class="date">2 Aug 2023</div>
+      <div class="desc">First date — unforgettable moments together 💑</div>
+    </div>
+    <div class="entry">
+      <div class="date">25 June 2024</div>
+      <div class="desc">Our special day — first kiss 😘</div>
+    </div>
+  </div>
+</body>
+</html>

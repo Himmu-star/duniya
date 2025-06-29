@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🤗 Virtual Hug for RuHI</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top left, #ffe6f0, #fff6fa);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      color: #c2185b;
+      font-size: 2rem;
+    }
+    .hug-area {
+      position: relative;
+      margin-top: 2rem;
+      width: 250px;
+      height: 250px;
+    }
+    .arms {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: url('https://cdn-icons-png.flaticon.com/512/4003/4003904.png') no-repeat center;
+      background-size: contain;
+      transition: transform 0.4s ease;
+    }
+    .arms.hugging {
+      transform: scale(1.1) rotate(-2deg);
+    }
+    .message {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #444;
+      background: #fff0f5;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤗 Virtual Hug for RuHI</h1>
+  <div class="hug-area" id="hugArea">
+    <div class="arms" id="arms"></div>
+  </div>
+  <div class="message" id="hugMessage">Tap and hold for a warm hug from Rishu 🤗</div>
+
+  <audio id="hugSound">
+    <source src="https://cdn.pixabay.com/audio/2022/03/17/audio_1c5b71b1ef.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const hugArea = document.getElementById('hugArea');
+    const arms = document.getElementById('arms');
+    const hugSound = document.getElementById('hugSound');
+    const hugMessage = document.getElementById('hugMessage');
+
+    let hugging = false;
+
+    hugArea.addEventListener('mousedown', startHug);
+    hugArea.addEventListener('touchstart', startHug);
+
+    hugArea.addEventListener('mouseup', endHug);
+    hugArea.addEventListener('mouseleave', endHug);
+    hugArea.addEventListener('touchend', endHug);
+
+    function startHug() {
+      if (!hugging) {
+        arms.classList.add('hugging');
+        hugSound.play();
+        hugMessage.innerText = "You're getting the warmest hug ever! 🤗";
+        hugging = true;
+      }
+    }
+
+    function endHug() {
+      if (hugging) {
+        arms.classList.remove('hugging');
+        hugMessage.innerText = "Tap and hold for a warm hug from Rishu 🤗";
+        hugging = false;
+      }
+    }
+  </script>
+</body>
+</html>

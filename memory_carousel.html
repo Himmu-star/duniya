@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎠 Memory Carousel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffafc;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      color: #d63384;
+    }
+    .carousel {
+      overflow: hidden;
+      max-width: 90%;
+      margin: 2rem auto;
+      position: relative;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .track {
+      display: flex;
+      animation: scroll 30s linear infinite;
+    }
+    .slide {
+      min-width: 300px;
+      margin: 1rem;
+      padding: 1rem;
+      background: #ffe4ec;
+      border-radius: 1rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .audio {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎠 Memory Carousel</h1>
+  <p>Some favorite moments that make our love story unforgettable 💖</p>
+
+  <div class="carousel">
+    <div class="track">
+      <div class="slide">📸 First Photo Together</div>
+      <div class="slide">📱 First Long Call</div>
+      <div class="slide">💬 First 'I Love You'</div>
+      <div class="slide">🌃 Star-gazing Night Call</div>
+      <div class="slide">🎁 Surprise Poem by Rishu</div>
+      <div class="slide">💃 Dancing Together at Home</div>
+      <div class="slide">💑 Our First Hand Hold</div>
+      <div class="slide">😄 Your Smile in Saree</div>
+    </div>
+  </div>
+
+  <div class="audio">
+    <p>Playing our song: <strong>Sanam Teri Kasam</strong> 🎵</p>
+    <audio controls autoplay loop>
+      <source src="your-song-file.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</body>
+</html>

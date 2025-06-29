@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎮 Fun & Teasing Zone</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fce4ec, #f8bbd0);
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #d63384;
+    }
+    .fun-box {
+      margin-top: 2rem;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #ad1457;
+    }
+    .result {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      color: #6a1b9a;
+      min-height: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Fun & Teasing Zone</h1>
+  <p>Press the button below to get a random teasing nickname, kiss, or cute message 💕</p>
+
+  <div class="fun-box">
+    <button onclick="showFun()">Tap for Fun!</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const funMessages = [
+      "Bugguuu 😝", "Ullu ki Jaan 😆", "A flying kiss for you 😘💋",
+      "Chuchhunar queen 👑", "Muaaah from Rishu 😘", "Motki meri cutie 🥰",
+      "Love attack 💘", "Bachcha behaving like baby 🧸", "Virtual tickle 🤭🤭🤭",
+      "Rani of Rishu's world 💓", "Baklol moment 😂😂", "Time for a warm HUG 🤗"
+    ];
+
+    function showFun() {
+      const result = document.getElementById("result");
+      const random = funMessages[Math.floor(Math.random() * funMessages.length)];
+      result.innerText = random;
+    }
+  </script>
+</body>
+</html>

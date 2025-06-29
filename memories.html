@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌠 Starry Memories</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      height: 100vh;
+      overflow: hidden;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      margin-bottom: 2rem;
+      color: #ffe6f0;
+      text-shadow: 0 0 10px #f06292;
+    }
+    .star-container {
+      position: relative;
+      width: 100vw;
+      height: 70vh;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff;
+      cursor: pointer;
+      animation: twinkle 2s infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.5; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.2); }
+    }
+    .popup {
+      position: absolute;
+      background: #fff0f5;
+      color: #333;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px #f06292;
+      display: none;
+      max-width: 250px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌌 Each Star is a Memory</h1>
+  <div class="star-container" id="starContainer"></div>
+  <script>
+    const starContainer = document.getElementById('starContainer');
+    const messages = [
+      "Our first eye contact — butterflies 💞",
+      "Your reply made my whole day 😍",
+      "That shy voice on our first call 📞",
+      "Laughing until midnight under the stars 🌃",
+      "You looked so beautiful on our first date 💖",
+      "That one text that made me cry happy tears 🥹",
+      "When I realized you are the one 💘",
+      "First 'I love you' under the moonlight 🌙",
+      "Dancing together in the rain ☔"
+    ];
+
+    for (let i = 0; i < messages.length; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 70 + '%';
+      star.style.left = Math.random() * 90 + '%';
+
+      const popup = document.createElement('div');
+      popup.classList.add('popup');
+      popup.textContent = messages[i];
+
+      star.addEventListener('click', (e) => {
+        popup.style.display = 'block';
+        popup.style.top = e.clientY + 'px';
+        popup.style.left = e.clientX + 'px';
+        setTimeout(() => popup.style.display = 'none', 3000);
+      });
+
+      starContainer.appendChild(star);
+      starContainer.appendChild(popup);
+    }
+  </script>
+</body>
+</html>
